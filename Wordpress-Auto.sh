@@ -23,7 +23,7 @@ file_path="/etc/apache2/sites-available/$web_name.conf"
 
 cat <<EOT >> $file_path
 <VirtualHost *:80>
-        ServerName www.example.com
+        ServerName $web_name
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html/$web_name/wordpress
@@ -39,7 +39,7 @@ cat <<EOT >> $file_path
 </VirtualHost>
 EOT
 
-a2ensite $web_name.com 
+a2ensite $web_name.conf
 
 // Disable default conf
 a2dissite 000-default.conf
